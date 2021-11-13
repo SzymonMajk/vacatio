@@ -1,0 +1,5 @@
+Projekt zak³ada komunikacjê dwóch komponentów:
+- silnik wnioskuj¹cy napisany w Prologu otrzymuj¹cy na pocz¹tku dzia³ania zestaw ofert wakacji zapisanych w postaci wielopoziomowych faktów, silnik bêdzie posiada³ równie¿ drugi zestaw faktów -- danych kontekstowych zebranych w trakcie wywiadu z u¿ytkownikiem, u¿ywanych nastêpnie do wywnioskowania najlepiej pasuj¹cych z ofert,
+- uproszczony chat-bot napisany w Pythonie przeprowadzaj¹cy tekstow¹ rozmowê z u¿ytkonikiem i wyci¹gaj¹cy na jej podstawie dane kontekstowe dla silnika wnioskuj¹cego, w momencie otrzymania odpowiedzi z silnika proponuj¹cy u¿ytkownikowi wywnioskowan¹ ofertê.
+
+Komunikacja pomiêdzy komponentami zostanie zapewniona przez pakiet pyswip

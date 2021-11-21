@@ -17,6 +17,8 @@ klimat(lokalizacja(ateny), srodziemnomorski).
 cenowo(cena(C), tania) :- C < 1500.
 cenowo(cena(C), budzetowa) :- C < 3500.
 
+morsko(X) :- member(morze, X), member(wyspa, X).
+
 odrzucona(X) :- xodrzucona(X).
 
 % API
@@ -27,4 +29,4 @@ zapomnij :- retractall(xodrzucona(_)).
 
 % Testy
 
-% oferta(Id, Od, Do, lokalizacja(X), cena(C), T), klimat(lokalizacja(X), srodziemnomorski), klimat(lokalizacja(X), srodziemnomorski), cenowo(cena(C), budzetowa).
+% not(odrzucona(Id)), oferta(Id, Od, Do, lokalizacja(X), cena(C), T), klimat(lokalizacja(X), srodziemnomorski), cenowo(cena(C), budzetowa), morsko(T).

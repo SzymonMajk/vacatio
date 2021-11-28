@@ -71,6 +71,59 @@ print("xodrzucona(" + to_not_accept + ")")
 prolog.assertz("xodrzucona(" + to_not_accept + ")")
 
 # Pytamy o kolejna
+print(len(list(prolog.query(offer_query))))
 for new_offer in prolog.query(offer_query):
     print(new_offer["Id"], "is the ofert from", new_offer["Od"], " to ", new_offer["Do"], " in ", new_offer["X"])
+
+
+print("Rekomender wakacji:")
+climate_list = ['srodziemnomorski', 'gorski', 'umiarkowany']
+prices = ['budzetowa', 'tania', 'droga']
+location_type = ['morsko', 'gorsko', 'wiejsko', ' miejsko',  'starozytno']
+canceled_offers = []
+program = True
+
+while program:
+    query = DynamicQuery()
+    for climate in climate_list:
+        print(f'Czy interesuje cię klimat {climate}?')
+        x = input()
+        if x == 'y':
+            query.set_climate(climate)
+            break
+
+    for price in prices:
+        print(f'Czy interesuje cię wyjazd, którego cena jest {price}?')
+        x = input()
+        if x == 'y':
+            query.set_price(price)
+            break
+
+    for location in location_type:
+        print(f'Czy interesuje cię wyjazd w miejsce , gdzie jest  {location}?')
+        x = input()
+        if x == 'y':
+            query.append_custom(location)
+            break
+
+    offer_query = query.render()
+    print(offer_query)
+    for offer in prolog.query(offer_query):
+        print("Proponowana wycieczka:")
+        print(offer["Id"], "is the ofert from", offer["Od"], " to ", offer["Do"], " in ", offer["X"])
+        to_not_accept = offer["Id"]
+        print("Czy ją akceptujesz?")
+        x = input()
+        if x == 'y':
+            program = False
+            break
+        else:
+            canceled_offers.append(to_not_accept)
+
+    print(canceled_offers)
+    for canceled_offer in canceled_offers:
+        prolog.query("odrzuc(" + canceled_offer + ").") # ?
+        print("xodrzucona(" + canceled_offer + ")")
+        prolog.assertz("xodrzucona(" + canceled_offer + ")")
+    canceled_offers = []
 

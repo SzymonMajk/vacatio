@@ -4,6 +4,7 @@
 % Core predicates
 
 klimat(lokalizacja(rodos), srodziemnomorski).
+klimat(lokalizacja(kreta), srodziemnomorski).
 klimat(lokalizacja(ateny), srodziemnomorski).
 klimat(lokalizacja(zakopane), gorski).
 klimat(lokalizacja(karpacz), gorski).

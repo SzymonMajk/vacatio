@@ -1,4 +1,5 @@
 from pyswip import Prolog
+from datetime import datetime
 
 class DynamicQuery():
     def __init__(self):
@@ -85,6 +86,13 @@ program = True
 
 while program:
     query = DynamicQuery()
+    print("Podaj datę początku wyjazdu")
+    date_start = input()
+    print("Podaj datę końca wyjazdu")
+    date_stop = input()
+    date_start = datetime.strptime(date_start, '%Y-%m-%d')
+    date_stop = datetime.strptime(date_stop, '%Y-%m-%d')
+    print (date_start, date_stop)
     for climate in climate_list:
         print(f'Czy interesuje cię klimat {climate}?')
         x = input()
@@ -109,22 +117,17 @@ while program:
     offer_query = query.render()
     print(offer_query)
     for offer in prolog.query(offer_query):
-        print("Proponowana wycieczka:")
-        print(offer["Id"], "is the ofert from", offer["Od"], " to ", offer["Do"], " in ", offer["X"])
         to_not_accept = offer["Id"]
-        print("Czy ją akceptujesz?")
-        x = input()
-        if x == 'y':
-            program = False
-            break
-        else:
-            canceled_offers.append(to_not_accept)
+        if to_not_accept not in canceled_offers:
+            print("Proponowana wycieczka:")
+            print(offer["Id"], "is the ofert from", offer["Od"], " to ", offer["Do"], " in ", offer["X"])
+            print("Czy ją akceptujesz?")
+            x = input()
+            if x == 'y':
+                program = False
+                print("Gratulujemy udanego wyboru")
+                break
+            else:
+                canceled_offers.append(to_not_accept)
 
-    print(canceled_offers)
-    for canceled_offer in canceled_offers:
-        #prolog.query("odrzuc(" + canceled_offer + ").") # ?
-        #print("xodrzucona(" + canceled_offer + ")")
-        #prolog.assertz("xodrzucona(" + canceled_offer + ")")
-        pass
-    canceled_offers = []
 

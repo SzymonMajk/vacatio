@@ -21,8 +21,7 @@ class DynamicQuery():
         self.date_from = "przed(Od, '" + date_from.strftime("%Y-%m-%d") + "'),"
     
     def set_to(self, date_to):
-        self.date_from = "po(Do, '" + date_to.strftime("%Y-%m-%d") + "'),"
-
+        self.date_to = "po(Do, '" + date_to.strftime("%Y-%m-%d") + "'),"
 
     def append_custom(self, predicate_name):
         self.customs.append(", " + predicate_name + "(T)")
@@ -90,14 +89,14 @@ program = True
 
 while program:
     query = DynamicQuery()
-    print("Podaj datę początku wyjazdu")
+    print("Kiedy najwcześniej mógłbyś wyjechać?")
     date_start = input()
     date_start = datetime.strptime(date_start, '%Y-%m-%d')
     query.set_from(date_start)
-    print("Podaj datę końca wyjazdu")
+    print("Kiedy najpóźniej mógłbyś wyjechać?")
     date_stop = input()
     date_stop = datetime.strptime(date_stop, '%Y-%m-%d')
-    query.set_to(date_start)
+    query.set_to(date_stop)
 
     for climate in climate_list:
         print(f'Czy interesuje cię klimat {climate}?')

@@ -66,9 +66,9 @@ for offer in prolog.query(offer_query):
     to_not_accept = offer["Id"]
 
 # Jak odrzucana to zapisujemy w bazie wiedzy
-prolog.query("odrzuc(" + to_not_accept + ").") # ?
-print("xodrzucona(" + to_not_accept + ")")
-prolog.assertz("xodrzucona(" + to_not_accept + ")")
+#prolog.query("odrzuc(" + to_not_accept + ").") # ?
+#print("xodrzucona(" + to_not_accept + ")")
+#prolog.assertz("xodrzucona(" + to_not_accept + ")")
 
 # Pytamy o kolejna
 print(len(list(prolog.query(offer_query))))
@@ -122,8 +122,9 @@ while program:
 
     print(canceled_offers)
     for canceled_offer in canceled_offers:
-        prolog.query("odrzuc(" + canceled_offer + ").") # ?
-        print("xodrzucona(" + canceled_offer + ")")
-        prolog.assertz("xodrzucona(" + canceled_offer + ")")
+        #prolog.query("odrzuc(" + canceled_offer + ").") # ?
+        #print("xodrzucona(" + canceled_offer + ")")
+        #prolog.assertz("xodrzucona(" + canceled_offer + ")")
+        pass
     canceled_offers = []
 

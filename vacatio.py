@@ -1,8 +1,11 @@
+from datetime import date
 from pyswip import Prolog
 
 class DynamicQuery():
     def __init__(self):
         self.raw_query = "not(odrzucona(Id)), oferta(Id, Od, Do, lokalizacja(X), cena(C), T),"
+        self.date_from = ""
+        self.date_to = ""
         self.climate = ""
         self.price = ""
         self.customs = []
@@ -14,10 +17,10 @@ class DynamicQuery():
         self.price = "cenowo(cena(C), " + price_name + ")"
     
     def set_from(self, date_from):
-        pass
+        self.date_from = "czasowo(Od, '" + date_from.strftime("%Y-%m-%d") + "'),"
     
     def set_to(self, date_to):
-        pass
+        self.date_from = "czasowo(Do, '" + date_from.strftime("%Y-%m-%d") + "'),"
 
     def append_custom(self, predicate_name):
         self.customs.append(", " + predicate_name + "(T)")
@@ -28,7 +31,7 @@ class DynamicQuery():
         for custom in self.customs:
             customs += custom
         
-        return self.raw_query + self.climate + self.price + customs + "."
+        return self.raw_query + self.date_from + self.date_to + self.climate + self.price + customs + "."
 
 prolog = Prolog()
 prolog.consult("vacatio_core.pl")

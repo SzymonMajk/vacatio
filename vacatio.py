@@ -17,10 +17,10 @@ class DynamicQuery():
         self.price = "cenowo(cena(C), " + price_name + ")"
     
     def set_from(self, date_from):
-        self.date_from = "czasowo(Od, '" + date_from.strftime("%Y-%m-%d") + "'),"
+        self.date_from = "przed(Od, '" + date_from.strftime("%Y-%m-%d") + "'),"
     
     def set_to(self, date_to):
-        self.date_from = "czasowo(Do, '" + date_from.strftime("%Y-%m-%d") + "'),"
+        self.date_from = "po(Do, '" + date_to.strftime("%Y-%m-%d") + "'),"
 
     def append_custom(self, predicate_name):
         self.customs.append(", " + predicate_name + "(T)")

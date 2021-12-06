@@ -136,3 +136,6 @@ while program:
                 canceled_offers.append(to_not_accept)
 
 
+# TODO GUI zrobić, takie z checkboxami i wybieraniem dat itp.
+# TODO sprobowac jeszcze naprawic ten assertz
+# TODO uzupelnic jeszcze baze wiedzy, zeby mieć co wymyslac

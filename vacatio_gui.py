@@ -52,55 +52,68 @@ class App(Frame):
         self.offered = False
         self.to_not_accept_current = None
 
-        # Add Calendars
+        self.quit_btn = Button(root, text = "Wyjdź", command = self.quit).pack(pady = 5)
+
         self.cal_from = Calendar(root, selectmode = 'day',
                     year = 2022, month = 5,
                     day = 14)
 
-        self.cal_from.pack(pady = 10)
+        self.cal_from.pack(pady = 5)
 
         self.cal_to = Calendar(root, selectmode = 'day',
                 year = 2022, month = 5,
                 day = 21)
 
-        self.cal_to.pack(pady = 10)
+        self.cal_to.pack(pady = 5)
 
-        # Add boxes
         self.selected_climate = StringVar()
         self.selected_climate.set(self.climate_list[0])
         self.climate_drop = OptionMenu(root, self.selected_climate, *self.climate_list)
 
-        self.climate_drop.pack(pady = 10)
+        self.climate_drop.pack(pady = 5)
 
         self.selected_price = StringVar()
         self.selected_price.set(self.prices[0])
         self.price_drop = OptionMenu(root, self.selected_price, *self.prices)
 
-        self.price_drop.pack(pady = 10)
+        self.price_drop.pack(pady = 5)
 
         self.selected_location_type = StringVar()
         self.selected_location_type.set(self.location_types[0])
         self.location_type_drop = OptionMenu(root, self.selected_location_type, *self.location_types)
 
-        self.location_type_drop.pack(pady = 10)
+        self.location_type_drop.pack(pady = 5)
 
-        # Add Button and Label
-        self.search_offer = Button(root, text = "Dopasuj oferte", command = self.find_offer).pack(pady = 10)
+        self.search_offer = Button(root, text = "Dopasuj oferte", command = self.find_offer)
+        self.search_offer.pack(pady = 5)
         self.offer_text = Label(root, text="Offer: ")
-        self.offer_text.pack(pady = 10)
-        self.accept_offer = Button(root, text = "Wybierz", command = self.accept).pack(pady = 10)
-        self.decline_offer = Button(root, text = "Odrzuć", command = self.decline).pack(pady = 10)
+        self.offer_text.pack(pady = 5)
+        self.accept_offer = Button(root, text = "Wybierz", command = self.accept)
+        self.decline_offer = Button(root, text = "Odrzuć", command = self.decline)
+
+    def quit(self):
+        root.destroy()
 
     def accept(self):
         if self.offered:
-            print("Gratulujemy udanego wyboru")
-            root.destroy()
+            self.cal_from.pack_forget()
+            self.cal_to.pack_forget()
+            self.climate_drop.pack_forget()
+            self.price_drop.pack_forget()
+            self.location_type_drop.pack_forget()
+            self.search_offer.pack_forget()
+            self.accept_offer.pack_forget()
+            self.decline_offer.pack_forget()
+            self.offer_text.config(text = "Gratulujemy udanego wyboru")
 
     def decline(self):
         if self.offered:
             self.canceled_offers.append(self.to_not_accept_current)
             self.offered = False
             self.offer_text.config(text = "Offer: ")
+            
+            self.accept_offer.pack_forget()
+            self.decline_offer.pack_forget()
 
     def find_offer(self):
         if not self.offered:
@@ -117,6 +130,9 @@ class App(Frame):
             for offer in self.prolog.query(offer_query):
                 to_not_accept = offer["Id"]
                 if to_not_accept not in self.canceled_offers:
+                    self.accept_offer.pack(padx = 50, side=LEFT)
+                    self.decline_offer.pack(padx = 50, side=RIGHT)
+
                     self.offered = True
                     self.to_not_accept_current = to_not_accept
                     self.offer_text.config(text = "Offer: " + offer["Id"] + " is the offer from " +  offer["Od"] + " to " +  offer["Do"] + " in " + offer["X"])
@@ -124,6 +140,6 @@ class App(Frame):
 
 # Execute Tkinter
 root = Tk()
-root.geometry("600x750")
+root.geometry("400x650")
 app = App(root)
 root.mainloop()

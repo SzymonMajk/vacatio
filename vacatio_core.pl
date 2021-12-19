@@ -6,10 +6,12 @@
 klimat(lokalizacja(rodos), srodziemnomorski).
 klimat(lokalizacja(kreta), srodziemnomorski).
 klimat(lokalizacja(ateny), srodziemnomorski).
+klimat(lokalizacja(santorini), srodziemnomorski).
 klimat(lokalizacja(zakopane), gorski).
 klimat(lokalizacja(karpacz), gorski).
 klimat(lokalizacja(krakow), umiarkowany).
 klimat(lokalizacja(warszawa), umiarkowany).
+klimat(lokalizacja(grojec), umiarkowany).
 klimat(lokalizacja(widacz), umiarkowany).
 
 przed(Od, Najwczesniej) :-  parse_time(Od, Stamp_1), parse_time(Najwczesniej, Stamp_2), Stamp_2 @=< Stamp_1.

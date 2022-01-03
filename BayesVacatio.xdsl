@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This network was created in GeNIe Academic, which can be used for academic teaching and research purposes only -->
+<smile version="1.0" id="Network1" numsamples="10000" discsamples="10000">
+	<nodes>
+		<cpt id="Choice_1">
+			<state id="True" />
+			<state id="False" />
+			<probabilities>0.4 0.6</probabilities>
+		</cpt>
+		<cpt id="Choice_2">
+			<state id="True" />
+			<state id="False" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<deterministic id="Myk_1">
+			<state id="State0" />
+			<state id="State1" />
+			<parents>Choice_1 Choice_2</parents>
+			<resultingstates>State0 State1 State0 State1</resultingstates>
+		</deterministic>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 3.0.6518.0 ACADEMIC" name="Network1">
+			<node id="Choice_1">
+				<name>Choice 1</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>121 150 262 230</position>
+			</node>
+			<node id="Choice_2">
+				<name>Choice 2</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>125 287 253 356</position>
+			</node>
+			<node id="Myk_1">
+				<name>Myk 1</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>394 214 518 303</position>
+			</node>
+		</genie>
+	</extensions>
+</smile>

@@ -2,45 +2,131 @@
 <!-- This network was created in GeNIe Academic, which can be used for academic teaching and research purposes only -->
 <smile version="1.0" id="Network1" numsamples="10000" discsamples="10000">
 	<nodes>
-		<cpt id="Choice_1">
-			<state id="True" />
-			<state id="False" />
-			<probabilities>0.4 0.6</probabilities>
+		<deterministic id="data">
+			<state id="weekendowa" />
+			<state id="tygodniowa" />
+			<state id="dwutygodniowa" />
+			<resultingstates>weekendowa</resultingstates>
+		</deterministic>
+		<deterministic id="Pytanie_o_klimat">
+			<state id="srodziemnomorski" />
+			<state id="gorski" />
+			<state id="umiarkowany" />
+			<resultingstates>umiarkowany</resultingstates>
+		</deterministic>
+		<cpt id="lokalizacja">
+			<state id="rodos" />
+			<state id="zakopane" />
+			<state id="santorini" />
+			<state id="krakow" />
+			<parents>Pytanie_o_klimat</parents>
+			<probabilities>0.5 0 0.5 0 0.02564102564102564 0.5128205128205128 0.4102564102564102 0.05128205128205132 0 0.2857142857142857 0 0.7142857142857143</probabilities>
 		</cpt>
-		<cpt id="Choice_2">
-			<state id="True" />
-			<state id="False" />
-			<probabilities>0.5 0.5</probabilities>
+		<deterministic id="cena">
+			<state id="budzetowa" />
+			<state id="tania" />
+			<state id="droga" />
+			<resultingstates>droga</resultingstates>
+		</deterministic>
+		<cpt id="Node6">
+			<state id="tysiac" />
+			<state id="dwa_tysiace" />
+			<state id="trzy_tysiace" />
+			<state id="cztery_tysiace" />
+			<state id="szesc_tysiecy" />
+			<state id="siedem_tysiecy" />
+			<parents>cena</parents>
+			<probabilities>0.008130081300813009 0.08130081300813008 0.8130081300813008 0.08130081300813008 0.008130081300813009 0.008130081300812941 0.7246376811594203 0.1449275362318841 0.07246376811594203 0.03623188405797102 0.02173913043478261 0 0.003759398496240601 0.01879699248120301 0.112781954887218 0.1503759398496241 0.3383458646616541 0.3759398496240602</probabilities>
 		</cpt>
-		<deterministic id="Myk_1">
-			<state id="State0" />
-			<state id="State1" />
-			<parents>Choice_1 Choice_2</parents>
-			<resultingstates>State0 State1 State0 State1</resultingstates>
+		<deterministic id="oferta2">
+			<state id="take" />
+			<state id="dismiss" />
+			<parents>lokalizacja Node6 data</parents>
+			<resultingstates>dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss take dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss</resultingstates>
+		</deterministic>
+		<deterministic id="oferta7">
+			<state id="take" />
+			<state id="dismiss" />
+			<parents>lokalizacja Node6 data</parents>
+			<resultingstates>dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss take dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss</resultingstates>
+		</deterministic>
+		<deterministic id="oferta4">
+			<state id="take" />
+			<state id="dismiss" />
+			<parents>lokalizacja Node6 data</parents>
+			<resultingstates>dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss take dismiss dismiss dismiss dismiss dismiss dismiss dismiss</resultingstates>
+		</deterministic>
+		<deterministic id="oferta3">
+			<state id="take" />
+			<state id="dismiss" />
+			<parents>lokalizacja Node6 data</parents>
+			<resultingstates>dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss take dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss dismiss</resultingstates>
 		</deterministic>
 	</nodes>
 	<extensions>
 		<genie version="1.0" app="GeNIe 3.0.6518.0 ACADEMIC" name="Network1">
-			<node id="Choice_1">
-				<name>Choice 1</name>
+			<node id="oferta2">
+				<name>Wycieczka do Rodos</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="8" />
-				<position>121 150 262 230</position>
+				<position>586 111 711 177</position>
 			</node>
-			<node id="Choice_2">
-				<name>Choice 2</name>
+			<node id="Pytanie_o_klimat">
+				<name>Pytanie o klimat</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="8" />
-				<position>125 287 253 356</position>
+				<position>62 180 153 239</position>
 			</node>
-			<node id="Myk_1">
-				<name>Myk 1</name>
+			<node id="lokalizacja">
+				<name>lokalizacja</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="8" />
-				<position>394 214 518 303</position>
+				<position>281 151 398 229</position>
+			</node>
+			<node id="oferta7">
+				<name>Wycieczka na Santorini</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>586 206 711 272</position>
+			</node>
+			<node id="oferta4">
+				<name>Wycieczka do Krakowa</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>579 316 704 382</position>
+			</node>
+			<node id="oferta3">
+				<name> Wycieczka do Zakopanego</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>572 423 697 489</position>
+			</node>
+			<node id="cena">
+				<name>Pytanie o cene</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>54 286 145 345</position>
+			</node>
+			<node id="Node6">
+				<name>cena</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>257 332 386 397</position>
+			</node>
+			<node id="data">
+				<name>Pytanie o dlugosc wycieczki</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>55 405 146 464</position>
 			</node>
 		</genie>
 	</extensions>

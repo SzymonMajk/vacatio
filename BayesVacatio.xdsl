@@ -13,8 +13,9 @@
 			<state id="zakopane" />
 			<state id="santorini" />
 			<state id="krakow" />
+			<state id="widacz" />
 			<parents>Pytanie_o_klimat_2</parents>
-			<probabilities>0.5 0 0.5 0 0 1 0 0 0 0.09090909090909091 0 0.9090909090909091</probabilities>
+			<probabilities>0.5 0 0.5 0 0 0 1 0 0 0 0 0.0303030303030303 0 0.303030303030303 0.6666666666666666</probabilities>
 		</cpt>
 		<cpt id="Pytanie_o_cene">
 			<state id="budzetowa" />
@@ -38,37 +39,76 @@
 			<state id="dwutygodniowa" />
 			<probabilities>0.5 0.2916666666666667 0.2083333333333333</probabilities>
 		</cpt>
+		<cpt id="morze">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.7 0.3</probabilities>
+		</cpt>
+		<cpt id="wyspa">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.6 0.4</probabilities>
+		</cpt>
+		<cpt id="szlaki2">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.6 0.4</probabilities>
+		</cpt>
+		<cpt id="swiatynie">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.6 0.4</probabilities>
+		</cpt>
+		<cpt id="swieze_powietrze">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.6 0.4</probabilities>
+		</cpt>
+		<noisymax id="pyta">
+			<state id="morsko" />
+			<state id="gorsko" />
+			<state id="miejsko" />
+			<state id="wiejsko" />
+			<state id="starozytno" />
+			<parents>morze wyspa szlaki2 swiatynie swieze_powietrze</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.6 0.1333333333333333 0.06666666666666665 0.06666666666666665 0.1333333333333334 0 0 0 0 1 0.45 0.15 0.09999999999999998 0.09999999999999998 0.2000000000000001 0 0 0 0 1 0.06666666666666665 0.6000000000000001 0 0.2666666666666667 0.06666666666666665 0 0 0 0 1 0 0.05555555555555558 0.2222222222222222 0.2777777777777778 0.4444444444444444 0 0 0 0 1 0.25 0.375 0 0.25 0.125 0 0 0 0 1 0.2 0.2000000000000001 0.2 0.2 0.2</parameters>
+		</noisymax>
 		<noisymax id="Wycieczka_do_Rodos">
 			<state id="take" />
 			<state id="dismiss" />
-			<parents>lokalizacja Node6 Pytaine_o_dlugosc_wycieczki</parents>
-			<strengths>0 1 2 3 0 1 2 3 4 5 0 1 2</strengths>
-			<parameters>1 0 0 1 0.09999999999999998 0.9 0 1 0 1 0.09999999999999998 0.9 1 0 0.09999999999999998 0.9 0 1 0 1 0.09999999999999998 0.9 1 0 0 1 0.09999999999999998 0.9</parameters>
+			<parents>lokalizacja Node6 Pytaine_o_dlugosc_wycieczki pyta</parents>
+			<strengths>0 1 2 3 4 0 1 2 3 4 5 0 1 2 0 1 2 3 4</strengths>
+			<parameters>1 0 0 1 0.09999999999999998 0.9 0 1 0 1 0 1 0.09999999999999998 0.9 1 0 0.09999999999999998 0.9 0 1 0 1 0.09999999999999998 0.9 1 0 0 1 1 0 0.2 0.8 0.09999999999999998 0.9 0 1 0 1 0.09999999999999998 0.9</parameters>
 		</noisymax>
 		<noisymax id="Wycieczka_na_Santorini">
 			<state id="take" />
 			<state id="dismiss" />
-			<parents>lokalizacja Node6 Pytaine_o_dlugosc_wycieczki</parents>
-			<strengths>0 1 2 3 0 1 2 3 4 5 0 1 2</strengths>
-			<parameters>0.09999999999999998 0.9 0 1 1 0 0 1 0 1 0 1 0 1 0.09999999999999998 0.9 1 0 0 1 0.09999999999999998 0.9 1 0 0 1 0.09999999999999998 0.9</parameters>
+			<parents>lokalizacja Node6 Pytaine_o_dlugosc_wycieczki pyta</parents>
+			<strengths>0 1 2 3 4 0 1 2 3 4 5 0 1 2 0 1 2 3 4</strengths>
+			<parameters>0.09999999999999998 0.9 0 1 1 0 0 1 0 1 0 1 0 1 0 1 0.09999999999999998 0.9 1 0 0 1 0.09999999999999998 0.9 1 0 0 1 1 0 0.4 0.6 0 1 0 1 0 1 0.09999999999999998 0.9</parameters>
 		</noisymax>
 		<noisymax id="Wycieczka_do_Krakowa">
 			<state id="take" />
 			<state id="dismiss" />
-			<parents>lokalizacja Node6 Pytaine_o_dlugosc_wycieczki</parents>
-			<strengths>0 1 2 3 0 1 2 3 4 5 0 1 2</strengths>
-			<parameters>0 1 0 1 0 1 0 1 0 1 0 1 0.09999999999999998 0.9 1 0 0.09999999999999998 0.9 0 1 1 0 0.09999999999999998 0.9 0 1 0.09999999999999998 0.9</parameters>
+			<parents>lokalizacja Node6 Pytaine_o_dlugosc_wycieczki pyta</parents>
+			<strengths>0 1 2 3 4 0 1 2 3 4 5 0 1 2 0 1 2 3 4</strengths>
+			<parameters>0 1 0 1 0 1 0 1 0 1 0 1 0 1 0.09999999999999998 0.9 1 0 0.09999999999999998 0.9 0 1 1 0 0.09999999999999998 0.9 0 1 0 1 0.2 0.8 1 0 0 1 0 1 0.09999999999999998 0.9</parameters>
 		</noisymax>
 		<noisymax id="Wycieczka_do_Zakopanego">
 			<state id="take" />
 			<state id="dismiss" />
-			<parents>lokalizacja Node6 Pytaine_o_dlugosc_wycieczki</parents>
-			<strengths>0 1 2 3 0 1 2 3 4 5 0 1 2</strengths>
-			<parameters>0 1 1 0 0 1 0 1 0 1 0 1 0 1 0 1 0.7 0.3 0 1 1 0 0.09999999999999998 0.9 0 1 0.09999999999999998 0.9</parameters>
+			<parents>lokalizacja Node6 Pytaine_o_dlugosc_wycieczki pyta</parents>
+			<strengths>0 1 2 3 4 0 1 2 3 4 5 0 1 2 0 1 2 3 4</strengths>
+			<parameters>0 1 1 0 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0.7 0.3 0 1 1 0 0.09999999999999998 0.9 0 1 0 1 1 0 0.09999999999999998 0.9 0.09999999999999998 0.9 0 1 0.09999999999999998 0.9</parameters>
 		</noisymax>
-		<equation id="Node1">
-			<definition>Node1=0</definition>
-		</equation>
+		<noisymax id="ateny">
+			<state id="take" />
+			<state id="dismiss" />
+			<parents>lokalizacja Node6 Pytaine_o_dlugosc_wycieczki pyta</parents>
+			<strengths>0 1 2 3 4 0 1 2 3 4 5 0 1 2 0 1 2 3 4</strengths>
+			<parameters>0 1 0 1 0 1 0 1 0 1 1 0 0.3 0.7 0 1 0 1 0 1 0 1 0 1 0.7 0.3 0 1 0 1 0 1 0 1 1 0 0 1 0.09999999999999998 0.9</parameters>
+		</noisymax>
 	</nodes>
 	<extensions>
 		<genie version="1.0" app="GeNIe 3.0.6518.0 ACADEMIC" name="Network1">
@@ -85,13 +125,6 @@
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="8" />
 				<position>240 276 369 341</position>
-			</node>
-			<node id="Node1">
-				<name>Inny pomysl na node z cena</name>
-				<interior color="e5f6f7" />
-				<outline color="000080" />
-				<font color="000000" name="Arial" size="8" />
-				<position>250 525 365 595</position>
 			</node>
 			<node id="Pytanie_o_klimat_2">
 				<name>Pytanie o klimat</name>
@@ -112,35 +145,84 @@
 				<interior color="e5f6f7" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="8" />
-				<position>156 417 249 475</position>
+				<position>247 408 340 466</position>
 			</node>
 			<node id="Wycieczka_do_Rodos">
 				<name>Wycieczka do Rodos</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="8" />
-				<position>580 118 722 180</position>
+				<position>622 95 764 157</position>
 			</node>
 			<node id="Wycieczka_na_Santorini">
 				<name>Wycieczka na Santorini</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="8" />
-				<position>580 202 722 271</position>
+				<position>624 194 766 263</position>
 			</node>
 			<node id="Wycieczka_do_Krakowa">
 				<name>Wycieczka do Krakowa</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="8" />
-				<position>581 304 723 373</position>
+				<position>613 298 755 367</position>
 			</node>
 			<node id="Wycieczka_do_Zakopanego">
 				<name>Wycieczka do Zakopanego</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="8" />
-				<position>581 407 723 476</position>
+				<position>620 403 762 472</position>
+			</node>
+			<node id="morze">
+				<name>Morze</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>61 490 143 541</position>
+			</node>
+			<node id="wyspa">
+				<name>Wyspa</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>61 559 143 610</position>
+			</node>
+			<node id="szlaki2">
+				<name>Szlaki</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>61 631 143 682</position>
+			</node>
+			<node id="swiatynie">
+				<name>Swiatynie</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>55 702 137 753</position>
+			</node>
+			<node id="swieze_powietrze">
+				<name>Swieze Powietrze</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>55 773 137 824</position>
+			</node>
+			<node id="pyta">
+				<name>Pytanie o lokalizacje</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>316 512 458 574</position>
+			</node>
+			<node id="ateny">
+				<name>Wycieczka do Widacza</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>631 524 773 593</position>
 			</node>
 		</genie>
 	</extensions>

@@ -1,2 +1,4 @@
 venv_vacatio_64bit
 .idea
+*.pyc
+smile_license

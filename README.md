@@ -10,3 +10,9 @@ From https://github.com/yuce/pyswip
 pip install tk
 
 pip install tkcalendar
+
+Vacation recommender based on SMILY
+
+python -m pip install --index-url https://support.bayesfusion.com/pysmile-B/ pysmile
+
+and put licence under smile_licence
